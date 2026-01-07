@@ -4,7 +4,7 @@
 
 ### Initier la base de données et l'application avec Docker
 
-L'application utilise un base de données Mongodb. Pour lancer une instance locale de Mongodb ainsi que l'application Node JS, vous pouvez utiliser le fichier `docker-compose.yml`et les ressources associées dans le dossier `docker`.
+L'application utilise un base de données Mongodb. Pour lancer une instance locale de Mongodb ainsi que l'application Node JS, vous pouvez utiliser le fichier `docker-compose.yml`et les ressources associées dans le dossier `docker` pour déployer entièrement l'application.
 
 *Initialisez et démarrez le conteneur Docker :*
 
@@ -31,4 +31,12 @@ par défaut :
 ```bash
 DB_USERNAME=user
 DB_PASSWORD=tot0
+```
+
+la base de données sera accessible via mongo-express avec ces identifiants à l'url : `http://localhost:8081`
+
+Mais également via la commande docker exec :
+
+```bash
+docker exec -it <container_id> mongo -u user -p tot0 --authenticationDatabase admin
 ```
