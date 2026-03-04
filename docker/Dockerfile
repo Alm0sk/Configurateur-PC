@@ -3,7 +3,7 @@ FROM node:lts-alpine3.23 AS builder
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY api/package*.json ./
 
 RUN npm ci
 
@@ -15,9 +15,8 @@ WORKDIR /app
 
 COPY --from=builder /app/node_modules ./node_modules
 
-COPY . .
+COPY api/ .
 
-EXPOSE 3000
-
+EXPOSE 8080
 
 CMD ["npm", "start"]

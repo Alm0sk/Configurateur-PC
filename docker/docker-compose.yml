@@ -5,7 +5,9 @@ services:
       dockerfile: docker/Dockerfile
     container_name: configpc_app
     ports:
-      - "3000:3000"
+      - "8080:8080"
+    env_file:
+      - ./.env
     environment:
       - MONGO_ADMIN_USER=${DB_USERNAME}
       - MONGO_ADMIN_PASSWORD=${DB_PASSWORD}
@@ -38,6 +40,20 @@ services:
       - ME_CONFIG_BASICAUTH_PASSWORD=${DB_PASSWORD}
     depends_on:
       - mongodb
+    restart: unless-stopped
+
+  backoffice:
+    image: node:lts
+    container_name: configpc_backoffice
+    working_dir: /app
+    volumes:
+      - ../backoffice:/app
+      - /app/node_modules
+    ports:
+      - "5173:5173"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
     restart: unless-stopped
 
 volumes:
