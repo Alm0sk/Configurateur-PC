@@ -11,10 +11,12 @@ services:
     environment:
       - MONGO_ADMIN_USER=${DB_USERNAME}
       - MONGO_ADMIN_PASSWORD=${DB_PASSWORD}
+      - MONGO_URI=mongodb://${DB_USERNAME}:${DB_PASSWORD}@mongodb:27017/configpc?authSource=admin
     depends_on:
       - mongodb
     restart: unless-stopped
 
+  # Base de données MongoDB
   mongodb:
     image: mongo:latest
     container_name: mongodb
@@ -27,6 +29,7 @@ services:
       - mongodb_data:/data/db
     restart: unless-stopped
 
+  # Interface de gestion de la db Mongo Express
   mongo-express:
     image: mongo-express
     container_name: mongo-express
@@ -41,6 +44,21 @@ services:
     depends_on:
       - mongodb
     restart: unless-stopped
+
+  # Initialisation de la base de données
+  seed:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: configpc_seed
+    env_file:
+      - ./.env
+    environment:
+      - MONGO_URI=mongodb://${DB_USERNAME}:${DB_PASSWORD}@mongodb:27017/configpc?authSource=admin
+    depends_on:
+      - mongodb
+    command: sh -c "sleep 5 && npm run seed"
+    restart: "no"
 
   backoffice:
     image: node:lts
