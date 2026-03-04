@@ -4,6 +4,39 @@ _Gestion des requêtes API d'une application de configuration de PC._
 
 _Application réalisée durant la formation CPIL de l'IPI en 2026 dans le cadre du module API de Mr Nicolas CHEVALIER._
 
+## Sommaire
+
+- [Lancement de l'application](#lancement-de-lapplication)
+  - [Initier la base de données et l'application avec Docker](#initier-la-base-de-données-et-lapplication-avec-docker)
+    - [Initialisez et démarrez le conteneur Docker](#initialisez-et-démarrez-le-conteneur-docker)
+    - [Redémarrez le conteneur Docker avec les changements pris en compte](#redémarrez-le-conteneur-docker-avec-les-changements-pris-en-compte)
+    - [Arrêter le conteneur Docker (et supprimer les volumes)](#arrêter-le-conteneur-docker-et-supprimer-les-volumes)
+  - [Accéder à l'interface de gestion de MongoDB Express](#accéder-à-linterface-de-gestion-de-mongodb-express)
+  - [Accéder à la documentation de l'API swagger](#accéder-à-la-documentation-de-lapi-swagger)
+- [Documentation API Swagger](#documentation-api-swagger)
+  - [Exemple d'utilisation de la documentation API Swagger](#exemple-dutilisation-de-la-documentation-api-swagger)
+  - [Token d'authentification JWT](#token-dauthentification-jwt)
+- [Backoffice](#backoffice)
+  - [Authentification](#authentification)
+  - [Prise en main du backoffice](#prise-en-main-du-backoffice)
+  - [Rôles admin](#rôles-admin)
+  - [Page Utilisateurs](#page-utilisateurs)
+    - [Point de vue admin page utilisateurs](#point-de-vue-admin-page-utilisateurs)
+    - [Point de vue user page utilisateurs](#point-de-vue-user-page-utilisateurs)
+  - [Page Catégories](#page-catégories)
+    - [Point de vue admin page catégories](#point-de-vue-admin-page-catégories)
+    - [Point de vue user page catégories](#point-de-vue-user-page-catégories)
+  - [Page Composants](#page-composants)
+    - [Point de vue admin page composants](#point-de-vue-admin-page-composants)
+    - [Point de vue user page composants](#point-de-vue-user-page-composants)
+  - [Page Partenaires](#page-partenaires)
+    - [Point de vue admin page partenaires](#point-de-vue-admin-page-partenaires)
+    - [Point de vue user page partenaires](#point-de-vue-user-page-partenaires)
+  - [Page Configurations](#page-configurations)
+    - [Point de vue admin page configurations](#point-de-vue-admin-page-configurations)
+    - [Point de vue user page configurations](#point-de-vue-user-page-configurations)
+- [Conclusion](#conclusion)
+
 ## Lancement de l'application
 
 _L'application a été entièrement prévue pour être déployée avec Docker_
