@@ -459,8 +459,6 @@ Ce module marque le dernier module technique de la formation CPIL et de ma réor
 
 J'ai eu l'occasion de mettre à profit les API, C#, un peu de base de données et du développement mobile android au cours de ces modules qui ont tous un répo dédié sur mon GitHub.
 
-Je me doute que vous serez le seul à regarder ce GitHub et encore plus jusqu'à la fin, Alors je vous remercie d'avoir pris le temps de lire ce readme, les précédents, mon mémoire de troisième année.
+Je me doute Mr chevalier que vous serez le seul à regarder ce Repo GitHub et encore plus jusqu'à la fin, Alors je vous remercie d'avoir pris le temps de parcourir ce readme, les précédents, ainsi que mon mémoire de troisième année.
 
-Et au plaisir de vous croisez dans le monde professionnel, quand je serais DevOps à plein temps
-
-Merci.
+Au plaisir de vous croisez dans le monde professionnel, quand je serais DevOps à plein temps
